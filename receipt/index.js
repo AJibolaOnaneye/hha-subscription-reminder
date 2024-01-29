@@ -1,5 +1,6 @@
 module.exports = (
     name,
+    expiry_sub_date
    
   ) => {
     return `
@@ -111,7 +112,7 @@ module.exports = (
                                       "
                                       class="header-main"
                                     >
-                                       ${name}, your subscription would be expiring soon... <span style="font-size: 40px;">😩</span>
+                                       ${name}, your subscription would be expiring on ${expiry_sub_date}. <span style="font-size: 40px;">😩</span>
                                     </p>
                                     <p
                                       style="

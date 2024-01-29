@@ -22,9 +22,25 @@ app.post('/send-receipt', async (req, res) => {
         // const {_id} =  req.body;
         const { email } = req.body;
         const { name } = req.body;
-      
+        const {expiry_date} =req.body;
+
+        const inputDate = expiry_date
+        const parts = inputDate.split('-');
+        const year = parseInt(parts[0]);
+        const month = parseInt(parts[1]);
+        const day = parseInt(parts[2]);
+        
+        const date = new Date(year, month - 1, day);
+        
+        // const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const options = {  dateStyle: 'medium'};
+        const expiry_sub_date = new Intl.DateTimeFormat('en-NG', options).format(date);
+        
+    
+
         const content = pdfTemplate(
           name,
+          expiry_sub_date
           );
         
         const recipientEmail = email;
