@@ -22,9 +22,9 @@ app.post('/send-receipt', async (req, res) => {
         // const {_id} =  req.body;
         const { email } = req.body;
         const { name } = req.body;
-        const {expiry_date} =req.body;
+        const {sub_end_date} =req.body;
 
-        const inputDate = expiry_date
+        const inputDate = sub_end_date
         const parts = inputDate.split('-');
         const year = parseInt(parts[0]);
         const month = parseInt(parts[1]);
